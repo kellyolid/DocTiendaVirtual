@@ -1,15 +1,12 @@
 # DocTiendaVirtual
-1.	Requerimientos del cliente (15 min) 
-2.	Requerimientos del sistema (35min) 
-3.	Investigación del estilo de codificación (20 min) 
-4.	Estilo de codificación (30 min) 
+Estilo de codificación 
 •	Clases
 La primera letra del nombre de todas las clases debe estar escrita con mayúscula.
-Si existiese la necesidad de utilizar más de una palabra para nombrar la clase, las palabras serán unidas y diferenciadas por mayúsculas. (Ej.: NombreClase)
-•	Variables
-Las variables deben ser en minúscula y si se necesita el uso de más de una palabra, estas serán separadas por un guion bajo.
+Si existiese la necesidad de utilizar más de una palabra para nombrar la clase, las palabras serán unidas y todas las palabras despues de la primera seran diferenciadas por tener la primera letra en mayúscula. (Ej.: NombreClase)
+•	Variables globales
+La primera letra de las variables deben ser en mayúscula y si se necesita el uso de más de una palabra, estas serán separadas por un guion bajo.
 •	Funciones
-Las funciones al igual que las variables deben ir en minúsculas con las palabras separadas por un guion bajo.
+Las funciones deben ir en minúsculas, si se necesitase el uso de más de una palabra, se escribiran juntas y todas las palabras despues de la primera seran diferenciadas por tener la primera letra en mayúscula. (Ej.: getNombre)
 •	Estructuras de control
 •	Ciclos
 •	Comentarios
