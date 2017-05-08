@@ -4,12 +4,16 @@ Estilo de codificación
 La primera letra del nombre de todas las clases debe estar escrita con mayúscula.
 Si existiese la necesidad de utilizar más de una palabra para nombrar la clase, las palabras serán unidas y todas las palabras despues de la primera seran diferenciadas por tener la primera letra en mayúscula. (Ej.: NombreClase)
 •	Variables globales
-La primera letra de las variables deben ser en mayúscula y si se necesita el uso de más de una palabra, estas serán separadas por un guion bajo.
+La primera letra de las variables deben ser en mayúscula y si se necesita el uso de más de una palabra, estas serán separadas por un guion bajo. (Ej.: Nombre_Frutas)
 •	Funciones
 Las funciones deben ir en minúsculas, si se necesitase el uso de más de una palabra, se escribiran juntas y todas las palabras despues de la primera seran diferenciadas por tener la primera letra en mayúscula. (Ej.: getNombre)
 •	Estructuras de control
-•	Ciclos
+Deben presentar una identación de 4 espacios, indicara que las instrucciones identadas, forman parte de una misma estructura de control.
+Ej.:
+If condición:
+_ _ _ _ Instrucciones
 •	Comentarios
+Los comentarios deben comenzar con el símbolo de numeral (#) y se debe dar un espacio antes de comenzar a escribir el comentario. Este debe ser realizado en una misma línea. Debe empezar con mayúsculas. (Ej.: # Comentario)
 •	Importaciones
 Las importaciones de librerías deben ir en líneas separadas.
 •	Salto de línea 
