@@ -1,6 +1,5 @@
 {% extends 'web_final/base.html' %}
 {% block cabecera %}
-    <li class="nav-item"> <a class="nav-link" href="#">Categorias</a> </li>
     <li class="nav-item"> <a class="nav-link" href="#">Acerca de<br></a> </li>
     {% if user.is_authenticated %}
     <li class="nav-item"> <a class="nav-link" href="/web_final/logout/">Logout</a> </li>
@@ -18,25 +17,52 @@
     <h1 class="text-white">Enjoy it!</h1>
     {% endif %}
 {% endblock %}
+{% block buscador %}
+        <form class="form-inline my-2 my-lg-0" action="." method="GET"> <input class="form-control mr-sm-2" type="text" name="q" value="{{ query|escape }}"> <button class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">Search</button> </form>
+{% endblock %}
 {% block body_block %}
-<h1>Search</h1>
-  <form action="." method="GET">
-    <label for="q">Search: </label>
-    <input type="text" name="q" value="{{ query|escape }}">
-    <input type="submit" value="Search">
-  </form>
-
   {% if query %}
-    <h2>Results for "{{ query|escape }}":</h2>
+    <h2>Resultados para "{{ query|escape }}":</h2>
+    {% if results|length > 0 %}
+     <div class="py-5">
+        <div class="container">
+          <div class="row">
+              {% for producto in results1 %}
+            <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
+              <h1 class="text-info">{{producto.nombre}}<br></h1>
+              <p class="lead">{{producto.descripcion}}</p>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    <div class="py-5">
+        <div class="container">
+          <div class="row">
+              {% for producto in results2 %}
+            <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
+              <h1 class="text-info">{{producto.nombre}}<br></h1>
+              <p class="lead">{{producto.descripcion}}</p>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    <div class="py-5">
+        <div class="container">
+          <div class="row">
+              {% for producto in results3 %}
+            <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
+              <h1 class="text-info">{{producto.nombre}}<br></h1>
+              <p class="lead">{{producto.descripcion}}</p>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+            {% else %}
+                <strong>No se encontro coincidencia.</strong>
+            {% endif %}
 
-    {% if results %}
-      <ul>
-      {% for producto in results %}
-        <li>{{ producto|escape }}</l1>
-      {% endfor %}
-      </ul>
-    {% else %}
-      <p>No books found</p>
-    {% endif %}
   {% endif %}
 {% endblock %}

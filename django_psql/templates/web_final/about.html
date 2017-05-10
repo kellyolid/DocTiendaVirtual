@@ -1,7 +1,6 @@
 {% extends 'web_final/base.html' %}
 {% block cabecera %}
-    <li class="nav-item"> <a class="nav-link" href="#">Categorias</a> </li>
-    <li class="nav-item"> <a class="nav-link" href="#">Acerca de<br></a> </li>
+    <li class="nav-item"> <a class="nav-link" href="/web_final/search/">Buscar</a> </li>
     {% if user.is_authenticated %}
     <li class="nav-item"> <a class="nav-link" href="/web_final/logout/">Logout</a> </li>
     <li class="nav-item"> <a class="nav-link" href="/web_final/registrop/">Registrar producto</a> </li>
@@ -12,7 +11,8 @@
 {% endblock %}
 {% block banner %}
     <p class="lead text-white">Gracias a nuestra página puedes encontrar todo lo que desees con cada una de sus características.</p>
-    <p class="lead text-white"></p>
+    <p class="lead text-white">Conocenos! Somos una pagina web diseñada para la compra y venta de diversois productos!<br />
+    Unete a nuestra comunidad PopStore!</p>
     {% if user.is_authenticated %}
     <h1 class="text-white">Enjoy it {{ user.username }}!</h1>
     {% else %}
