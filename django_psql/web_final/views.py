@@ -14,7 +14,14 @@ def index(request):
 
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
-    context_dict = {'boldmessage': "I am bold font from the context"}
+    producto_list = Producto.objects.order_by('id')[:9]
+    productol1 = producto_list[0:3]
+    productol2 = producto_list[3:6]
+    productol3 = producto_list[6:9]
+    context_dict = {'productos': producto_list,
+                    'productos1': productol1,
+                    'productos2': productol2,
+                    'productos3': productol3}
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
@@ -127,11 +134,21 @@ def search(request):
             Q(nombre__icontains=query) |
             Q(descripcion__icontains=query)
         )
-        results = Producto.objects.filter(qset).distinct()
+        results = Producto.objects.filter(qset).distinct()[:9]
+        results1 = results[0:3]
+        results2 = results[3:6]
+        results3 = results[6:9]
     else:
         results = []
+        results1 = []
+        results2 = []
+        results3 = []
     return render_to_response("web_final/search.html", {
         "results": results,
+        "results1": results1,
+        "results2": results2,
+        "results3": results3,
         "query": query
     })
-
+def about(request):
+    return render(request, 'web_final/about.html', {})

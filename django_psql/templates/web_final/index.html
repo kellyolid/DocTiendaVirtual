@@ -1,7 +1,7 @@
 {% extends 'web_final/base.html' %}
 {% block cabecera %}
-    <li class="nav-item"> <a class="nav-link" href="#">Categorias</a> </li>
-    <li class="nav-item"> <a class="nav-link" href="#">Acerca de<br></a> </li>
+    <li class="nav-item"> <a class="nav-link" href="/web_final/search/">Buscar</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="/web_final/about/">Acerca de<br></a> </li>
     {% if user.is_authenticated %}
     <li class="nav-item"> <a class="nav-link" href="/web_final/logout/">Logout</a> </li>
     <li class="nav-item"> <a class="nav-link" href="/web_final/registrop/">Registrar producto</a> </li>
@@ -19,5 +19,45 @@
     {% endif %}
 {% endblock %}
 {% block body_block %}
+{% if productos|length > 0 %}
+ <div class="py-5">
+    <div class="container">
+      <div class="row">
+          {% for producto in productos1%}
+        <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\{{producto.imagen}}">
+          <h1 class="text-info">{{producto.nombre}}<br></h1>
+          <p class="lead">{{producto.descripcion}}</p>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+<div class="py-5">
+    <div class="container">
+      <div class="row">
+          {% for producto in productos2%}
+        <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\{{producto.imagen}}">
+          <h1 class="text-info">{{producto.nombre}}<br></h1>
+          <p class="lead">{{producto.descripcion}}</p>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+<div class="py-5">
+    <div class="container">
+      <div class="row">
+          {% for producto in productos3%}
+        <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\{{producto.imagen}}">
+          <h1 class="text-info">{{producto.nombre}}<br></h1>
+          <p class="lead">{{producto.descripcion}}</p>
+        </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+        {% else %}
+            <strong>No se encontro coincidencia.</strong>
+        {% endif %}
 
 {% endblock %}
