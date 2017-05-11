@@ -1,6 +1,6 @@
 from django.template import RequestContext
 from django.shortcuts import render, render_to_response
-from web_final.forms import UserForm, UserProfileForm, ProductoForm
+from web_final.forms import UserForm, UserProfileForm, ProductoForm, CategoriaForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -11,7 +11,6 @@ from web_final.models import Producto
 
 
 def index(request):
-
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
     producto_list = Producto.objects.order_by('id')[:9]
@@ -150,5 +149,24 @@ def search(request):
         "results3": results3,
         "query": query
     })
+
 def about(request):
     return render(request, 'web_final/about.html', {})
+
+
+@login_required
+def categoria_register(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            message = "Registro completado"
+            return HttpResponseRedirect('/web_final/')
+    else:
+        form = CategoriaForm()
+
+    return render(request,'web_final/registroc.html', locals())
+
+
+
+
