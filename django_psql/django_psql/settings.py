@@ -84,9 +84,9 @@ DATABASES = {
     #}
     'default':{
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'django_wdb',
-        'USER': 'django_w',
-        'PASSWORD':'12345',
+        'NAME':'PopStorebd',
+        'USER': 'gperez',
+        'PASSWORD':'gabriel.8',
         'HOST':'localhost',
         'PORT': ''
     }

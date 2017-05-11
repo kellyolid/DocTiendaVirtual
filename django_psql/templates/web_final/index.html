@@ -5,6 +5,7 @@
     {% if user.is_authenticated %}
     <li class="nav-item"> <a class="nav-link" href="/web_final/logout/">Logout</a> </li>
     <li class="nav-item"> <a class="nav-link" href="/web_final/registrop/">Registrar producto</a> </li>
+    <li class="nav-item"> <a class="nav-link" href="/web_final/registroc/">Registrar Categoria</a> </li>
     {% else %}
     <li class="nav-item"> <a class="nav-link" href="/web_final/login/">Login</a> </li>
     <li class="nav-item"> <a class="nav-link" href="/web_final/register/">Registrate aquí</a> </li>
@@ -26,7 +27,8 @@
           {% for producto in productos1%}
         <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\{{producto.imagen}}">
           <h1 class="text-info">{{producto.nombre}}<br></h1>
-          <p class="lead">{{producto.descripcion}}</p>
+          <p class="lead">{{producto.descripcion}}<br></p>
+            <p class="lead">Precio: {{producto.precio}} Bs.</p>
         </div>
           {% endfor %}
       </div>
@@ -38,7 +40,8 @@
           {% for producto in productos2%}
         <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\{{producto.imagen}}">
           <h1 class="text-info">{{producto.nombre}}<br></h1>
-          <p class="lead">{{producto.descripcion}}</p>
+         <p class="lead">{{producto.descripcion}}<br></p>
+            <p class="lead">Precio: {{producto.precio}} Bs.</p>
         </div>
           {% endfor %}
       </div>
@@ -50,7 +53,8 @@
           {% for producto in productos3%}
         <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\{{producto.imagen}}">
           <h1 class="text-info">{{producto.nombre}}<br></h1>
-          <p class="lead">{{producto.descripcion}}</p>
+         <p class="lead">{{producto.descripcion}}<br></p>
+            <p class="lead">Precio: {{producto.precio}} Bs.</p>
         </div>
           {% endfor %}
       </div>
