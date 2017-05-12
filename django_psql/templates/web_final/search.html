@@ -1,6 +1,6 @@
 {% extends 'web_final/base.html' %}
 {% block cabecera %}
-    <li class="nav-item"> <a class="nav-link" href="#">Acerca de<br></a> </li>
+    <li class="nav-item"> <a class="nav-link" href="/web_final/about/">Acerca de<br></a> </li>
     {% if user.is_authenticated %}
     <li class="nav-item"> <a class="nav-link" href="/web_final/logout/">Logout</a> </li>
     <li class="nav-item"> <a class="nav-link" href="/web_final/registrop/">Registrar producto</a> </li>
@@ -29,8 +29,8 @@
           <div class="row">
               {% for producto in results1 %}
             <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
-              <h1 class="text-info">{{producto.nombre}}<br></h1>
-              <p class="lead">{{producto.descripcion}}</p>
+            <h1 class="text-info"><a href="/web_final/producto/?q={{producto.id}}">{{producto.nombre}}<br></a></h1>
+              <p class="lead">Precio: {{producto.precio}} Bs</p>
             </div>
               {% endfor %}
           </div>
@@ -41,8 +41,8 @@
           <div class="row">
               {% for producto in results2 %}
             <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
-              <h1 class="text-info">{{producto.nombre}}<br></h1>
-              <p class="lead">{{producto.descripcion}}</p>
+            <h1 class="text-info"><a href="/web_final/producto/?q={{producto.id}}">{{producto.nombre}}<br></a></h1>
+              <p class="lead">Precio: {{producto.precio}} Bs</p>
             </div>
               {% endfor %}
           </div>
@@ -53,8 +53,8 @@
           <div class="row">
               {% for producto in results3 %}
             <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
-              <h1 class="text-info">{{producto.nombre}}<br></h1>
-              <p class="lead">{{producto.descripcion}}</p>
+            <h1 class="text-info"><a href="/web_final/producto/?q={{producto.id}}">{{producto.nombre}}<br></a></h1>
+              <p class="lead">Precio: {{producto.precio}} Bs</p>
             </div>
               {% endfor %}
           </div>

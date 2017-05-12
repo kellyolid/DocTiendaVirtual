@@ -1,4 +1,4 @@
-from web_final.models import UserProfile, Producto
+from web_final.models import UserProfile, Producto, Categoria
 from django.contrib.auth.models import User
 from django import forms
 class UserForm(forms.ModelForm):
@@ -18,3 +18,7 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = ('category','nombre','descripcion','precio','imagen')
 
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ('nombre','descripcion')
