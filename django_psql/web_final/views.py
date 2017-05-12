@@ -1,6 +1,6 @@
 from django.template import RequestContext
 from django.shortcuts import render, render_to_response
-from web_final.forms import UserForm, UserProfileForm, ProductoForm
+from web_final.forms import UserForm, UserProfileForm, ProductoForm, CategoriaForm
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -152,3 +152,51 @@ def search(request):
     })
 def about(request):
     return render(request, 'web_final/about.html', {})
+
+@login_required
+def categoria_register(request):
+    if request.method == 'POST':
+        form = CategoriaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            message = "Registro completado"
+            return HttpResponseRedirect('/web_final/')
+    else:
+        form = CategoriaForm()
+
+    return render(request,'web_final/registroc.html', locals())
+
+def searchc(request):
+    query = request.GET.get('q', '')
+    if query:
+        qset = (
+            Q(Categoria__nombre__icontains=query)
+        )
+        results = Producto.objects.filter(qset).distinct()[:9]
+        results1 = results[0:3]
+        results2 = results[3:6]
+        results3 = results[6:9]
+    else:
+        results = []
+        results1 = []
+        results2 = []
+        results3 = []
+    return render_to_response("web_final/searchc.html", {
+        "results": results,
+        "results1": results1,
+        "results2": results2,
+        "results3": results3,
+        "query": query
+    })
+
+
+def producto(request):
+    query = request.GET.get('q', '')
+    if query:
+        qset = (
+            Q(id = query)
+        )
+        results = Producto.objects.filter(qset).distinct()
+    else:
+        results = {}
+    return render_to_response("web_final/producto.html",{"results":results,"query":query})
