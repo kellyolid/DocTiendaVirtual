@@ -7,18 +7,19 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 # Create your views here.
-from web_final.models import Producto
+from web_final.models import Producto, Categoria
 
 
 def index(request):
 
     # Construct a dictionary to pass to the template engine as its context.
-    # Note the key boldmessage is the same as {{ boldmessage }} in the template!
+    category_list = Categoria.objects.order_by('id')
     producto_list = Producto.objects.order_by('id')[:9]
     productol1 = producto_list[0:3]
     productol2 = producto_list[3:6]
     productol3 = producto_list[6:9]
     context_dict = {'productos': producto_list,
+                    'categorias': category_list,
                     'productos1': productol1,
                     'productos2': productol2,
                     'productos3': productol3}
@@ -167,12 +168,17 @@ def categoria_register(request):
     return render(request,'web_final/registroc.html', locals())
 
 def searchc(request):
+    category_list = Categoria.objects.order_by('id')
     query = request.GET.get('q', '')
     if query:
         qset = (
-            Q(Categoria__nombre__icontains=query)
+            Q(category_id = query)
+        )
+        qset1 = (
+            Q(id = query)
         )
         results = Producto.objects.filter(qset).distinct()[:9]
+        categ = Categoria.objects.filter(qset1)
         results1 = results[0:3]
         results2 = results[3:6]
         results3 = results[6:9]
@@ -183,9 +189,11 @@ def searchc(request):
         results3 = []
     return render_to_response("web_final/searchc.html", {
         "results": results,
+        "categorias":category_list,
         "results1": results1,
         "results2": results2,
         "results3": results3,
+        "categ":categ,
         "query": query
     })
 

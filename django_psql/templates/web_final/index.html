@@ -20,6 +20,22 @@
     {% endif %}
 {% endblock %}
 {% block body_block %}
+<div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group"> <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Categorias </button>
+            <div class="dropdown-menu">
+                {% for categoria in categorias %}
+                <a class="dropdown-item" href="/web_final/searchc/?q={{categoria.id}}">{{categoria.nombre}}</a>
+                {% endfor %}
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/web_final/">Todas</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 {% if productos|length > 0 %}
  <div class="py-5">
     <div class="container">
