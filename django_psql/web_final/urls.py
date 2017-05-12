@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^about/$', views.about, name='about'),
     url(r'^registroc/$', views.categoria_register, name='creg'),
     url(r'^producto/$', views.producto, name='producto'),
+    url(r'^searchc/$', views.searchc, name='searchc'),
 ]

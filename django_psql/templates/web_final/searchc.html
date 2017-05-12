@@ -19,5 +19,64 @@
 {% block buscador %}
 {% endblock %}
 {% block body_block %}
+<div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="btn-group"> <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown"> Categorias </button>
+            <div class="dropdown-menu">
+                {% for categoria in categorias %}
+                <a class="dropdown-item" href="/web_final/searchc/?q={{categoria.id}}">{{categoria.nombre}}</a>
+                {% endfor %}
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/web_final/">Todas</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    {% if query %}
+    <h2>Categoria "{{ categ.0.nombre }}":</h2>
+    {% if results|length > 0 %}
+     <div class="py-5">
+        <div class="container">
+          <div class="row">
+              {% for producto in results1 %}
+            <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
+            <h1 class="text-info"><a href="/web_final/producto/?q={{producto.id}}">{{producto.nombre}}<br></a></h1>
+              <p class="lead">Precio: {{producto.precio}} Bs</p>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    <div class="py-5">
+        <div class="container">
+          <div class="row">
+              {% for producto in results2 %}
+            <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
+            <h1 class="text-info"><a href="/web_final/producto/?q={{producto.id}}">{{producto.nombre}}<br></a></h1>
+              <p class="lead">Precio: {{producto.precio}} Bs</p>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+    <div class="py-5">
+        <div class="container">
+          <div class="row">
+              {% for producto in results3 %}
+            <div class="col-md-4"><img class="center-block img-fluid d-block w-75" src= "..\..\{{producto.imagen}}">
+            <h1 class="text-info"><a href="/web_final/producto/?q={{producto.id}}">{{producto.nombre}}<br></a></h1>
+              <p class="lead">Precio: {{producto.precio}} Bs</p>
+            </div>
+              {% endfor %}
+          </div>
+        </div>
+      </div>
+            {% else %}
+                <strong>No se encontro productos en esta categoria</strong>
+            {% endif %}
 
+  {% endif %}
 {% endblock %}
